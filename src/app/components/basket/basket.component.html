@@ -1,0 +1,40 @@
+
+<div>
+
+
+  </div>
+  <div class="box" >
+    <div class="content">
+      {{ itemsList| json }}
+      <h1>Корзина Покупатора!!!</h1>
+      <div class="addbox">
+        <input type="text" #prod>
+        <button (click)="Add(prod.value)">Add product</button>
+      </div>
+      <table class="darkTable">
+          <thead>
+          <tr>
+          <th>Имя товара</th>
+          <th>Колличество</th>
+          <th>+</th>
+          <th>-</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of itemsList">
+          <th >{{ item.productName }}</th><th>{{ item.productCount }}</th>
+          <th >
+            <input type="button" (click)="UpCount(item.productName)"  value="+"  >
+          </th>
+            <th>
+                <input type="button" (click)="DownCount(item.productName)" value="-" >
+            </th>
+          </tr>
+          </tbody>
+          </table>
+          {{ prod| json}}
+    </div>
+
+
+  </div>
+
